@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <title>SNEAKSHOP</title>
+</head>
+<body>
+
+    <%- include("partials/header.ejs") %>
+
+    <header class="hero-section">
+        <div class="hero-text-container">
+            <h3>Best Products In Cheap Prices </h3>
+            <p>Sneaker! Who doesn’t love them? An Outfit can be perfect, but when the right sneaker is missing, it’s beyond hope. And that is what we are here for. Selected with great care we offer you only the best from the best. <br>Wether if Lifestyle Sneaker, Runner, Basketball sneakers or Trainer - with our sneaker you look fantastic in every sphere of life.
+            </p>
+        </div>
+        <div class="hero-img-container">
+            <img src="https://images.satu.kz/160983450_basketbolnye-krossovki-air.jpg" alt="" />
+        </div>
+    </header>
+
+    <section class="featured-product-section" id="featured-products">
+        <h2>Recently Added Products</h2>
+        <div class="featured-container">
+            <div class="row">
+                <% if(Array.isArray(mydata)){%>
+                    <%for(let a = mydata.length - 1; a >= mydata.length - 3; a--){%>
+                        <div class="col-sm-4">
+                            <div class="filter <%=mydata[a].gender%>">
+                                <div class="thumb-wrapper">
+                                    <span class="wish-icon"><i class="fa fa-heart-o"></i></span>
+                                    <div class="img-box">
+                                        <img src="<%=mydata[a].productImg%>" class="img-responsive" alt="" />
+                                    </div>
+                                    <div class="thumb-content">
+                                        <h4><%=mydata[a].name%></h4>
+                                        <p><%=mydata[a].description%></p>
+                                        <p class="item-price"><strike><%=mydata[a].price * 1.8%>$</strike> <b><%=mydata[a].price%>$</b></p>
+                                        <a href="#"><button class="button">Add to Cart</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <%}%>
+                <%}else{%>
+                <label for="data" class="form-label"> <%=mydata%></label>
+                <%}%>
+            </div>
+        </div>
+    </section>
+
+    <section class="shop-section">
+        <h2>Collections</h2>
+        <p>So you are looking for Nike Air Max 1, Nike Air Force 1, Nike Air Max 79, New Balance 247, <br> Adidas Ultra BOOST, Adidas I-5923, New Balance 997,Adidas NMD or an ASICS SportStyle Sneaker<br> like ASICS SportStyle Gel Lyte III...? Here, our partners, we hope you will find the sneaker you want.
+        </p>
+        <div class="row">
+            <div class="col">
+                <div class="shop-products-container">
+                    <div class="product-img">
+                        <img src="https://i.pinimg.com/736x/f1/20/4f/f1204f931a33e6ffd537bf80a3293673.jpg">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-text">
+                            <h1>Men's Collection</h1>
+                            <h2>by studio and friends</h2>
+                            <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
+                        </div>
+                        <div class="product-price-btn">
+                            <a href="/products" class="button">buy now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="shop-products-container">
+                    <div class="product-img">
+                        <img src="https://cdn.cliqueinc.com/posts/277254/mens-sneakers-for-women-277254-1549907847486-main.700x0c.jpg">
+                    </div>
+                    <div class="product-info">
+                        <div class="product-text">
+                            <h1>Women's Collection</h1>
+                            <h2>by studio and friends</h2>
+                            <p>Harvest Vases are a reinterpretation<br> of peeled fruits and vegetables as<br> functional objects. The surfaces<br> appear to be sliced and pulled aside,<br> allowing room for growth. </p>
+                        </div>
+                        <div class="product-price-btn">
+                            <a href="/products" class="button">Go shopping</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include("partials/footer.ejs") %>
+
+</body>
+</html>

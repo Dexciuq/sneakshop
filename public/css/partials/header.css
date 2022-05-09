@@ -1,0 +1,32 @@
+.navbar-nav {
+    margin-left: auto !important;
+}
+.nav-link {
+    font-weight: 500;
+    color: black !important;
+}
+
+.nav-link-profile {
+    display: block;
+    padding: 0.5rem 0.2rem;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    font-weight: 500;
+    color: black !important;
+}
+
+.nav-item{
+    padding-right: 25px;
+}
+.navbar-brand {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    font-weight: 800;
+    color: var(--main-color) !important;
+}
+.navbar {
+    background-color: white !important;
+}
+.nav-icons > i {
+    margin-right: 10px;
+}

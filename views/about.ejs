@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/about.css" />
+    <title>About us</title>
+</head>
+<body>
+
+<%- include("partials/header.ejs") %>
+
+<section class="about-us-section" id="about-us">
+    <h2>About Our Services</h2>
+    <p>Online Shop works exclusively with trusted manufacturers, ensuring the latest series, including limited must-have. <br>The selection in our store is very thorough and well thought out, <br>based on timeless design, functionality, natural materials and original solutions. </p>
+    <div class="services-container">
+        <div class="service">
+            <i class="fas fa-truck"></i>
+            <h4>Delivery Services</h4>
+        </div>
+        <div class="service">
+            <i class="fas fa-exchange-alt"></i>
+            <h4>Shipping and Returns</h4>
+        </div>
+        <div class="service">
+            <i class="fas fa-percentage"></i> <h4>Promotion</h4>
+        </div>
+        <div class="service">
+            <i class="fas fa-user"></i> <h4>24 Hours Service</h4>
+        </div>
+    </div>
+</section>
+
+<section class="shop-section">
+    <h2>About Our Products</h2>
+    <p>So you are looking for Nike Air Max 1, Nike Air Force 1, Nike Air Max 79, New Balance 247, <br> Adidas Ultra BOOST, Adidas I-5923, New Balance 997,Adidas NMD or an ASICS SportStyle Sneaker<br> like ASICS SportStyle Gel Lyte III...? Here, our partners, we hope you will find the sneaker you want.
+    </p>
+    <img src="img/banner_img_04.jpg" alt="" />
+</section>
+
+<section class="our-brands-section">
+    <h2>Our Brands & Partners</h2>
+    <p>Business partner relationships are important connections and resources as we conduct our jobs, <br> plan for the future, and build our knowledge about products, changes and trends.</p>
+    <div class="brands-container">
+        <img src="img/brand_01.png" alt="" />
+        <img src="img/brand_02.png" alt="" />
+        <img src="img/brand_03.png" alt="" />
+        <img src="img/brand_04.png" alt="" />
+    </div>
+</section>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>

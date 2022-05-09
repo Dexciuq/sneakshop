@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+          integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous"/>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="css/products.css" />
+    <title>SNEAKSHOP</title>
+</head>
+<body>
+
+<%- include("partials/header.ejs") %>
+
+<section class="shop-section">
+<!--    <h2>Products</h2>-->
+<!--    <p>So you are looking for Nike Air Max 1, Nike Air Force 1, Nike Air Max 79, New Balance 247, <br> Adidas Ultra BOOST, Adidas I-5923, New Balance 997,Adidas NMD or an ASICS SportStyle Sneaker<br> like ASICS SportStyle Gel Lyte III...? Here, our partners, we hope you will find the sneaker you want.-->
+<!--    </p>-->
+    <h2>Filter list</h2>
+
+    <div id="myBtnContainer">
+        <button class="button active" onclick="filterSelection('all')"> Show all</button>
+        <button class="button" onclick="filterSelection('man')"> Men</button>
+        <button class="button" onclick="filterSelection('women')"> Women</button>
+        <button class="button" onclick="filterSelection('unisex')"> Unisex</button>
+<!--        <button class="button" onclick="sort()"> Sort by high to low</button>-->
+<!--        <button class="button" onclick="sortReverse()"> Sort by low to high</button>-->
+    </div>
+
+
+
+    <div class="shop-products-container">
+        <label for="data" class="form-label"></label>
+        <div class="row">
+        <% if(Array.isArray(mydata)){%>
+            <%for(let a = 0; a < mydata.length; a++){%>
+                <div class="col-sm-4">
+                    <div class="filter <%=mydata[a].gender%>">
+                        <div class="thumb-wrapper">
+                            <div class="img-box">
+                                <img src="<%=mydata[a].productImg%>" class="img-responsive" alt="" />
+                            </div>
+                            <div class="thumb-content">
+                                <h4><%=mydata[a].name%></h4>
+                                <p><%=mydata[a].description%></p>
+                                <p class="item-price"><strike><%=mydata[a].price * 1.8%>$</strike> <b><%=mydata[a].price%>$</b></p>
+                                <a href="#"><button class="button">Add to Cart</button></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <%}%>
+        <%}else{%>
+        <label for="data" class="form-label"> <%=mydata%></label>
+        <%}%>
+        </div>
+    </div>
+</section>
+
+<script src="js/index.js"></script>
+
+<%- include("partials/footer.ejs") %>
+
+</body>
+</html>
