@@ -1,11 +1,24 @@
-const ProductModel = require('../models/Product')
+const ProductModel = require('../models/Product');
 
-module.exports.getAll = async function (req, res) {
+module.exports.getAllProducts = async function (req, res) {
     try {
         const products = await ProductModel.find();
-        res.status(200).render('products', {mydata: products})
+        res.status(200).json(products);
+        //res.status(200).render('products', {product: products})
     } catch(error) {
-        res.status(404).render('products', {mydata: error.message})
+        res.status(404).render('products', {product: error.message})
+    }
+}
+
+
+module.exports.getProduct = async function (req, res) {
+    try {
+        const product = await ProductModel.findOne({_id: req.params.id}).exec();
+        // res.status(200).render('products', {product: products})
+        res.status(200).json(product)
+    } catch(error) {
+        //res.status(404).render('products', {product: error.message})
+        res.status(200).json(error);
     }
 }
 
@@ -51,9 +64,8 @@ module.exports.updateProduct = async function(req, res){
             message: `Not Found ${req.body.name}`
         })
     }
-
-    if (req.body?.name) product.name = req.body.name;
-    if (req.body?.price) product.price = req.body.price;
+    if (req.body.name) product.name = req.body.name;
+    if (req.body.price) product.price = req.body.price;
 
     const result = await product.save();
     res.json(result);
@@ -75,18 +87,15 @@ module.exports.deleteProduct = async function (req, res) {
     res.json(result);
 }
 
-module.exports.sorted = function(req, res){
-
+module.exports.addToCart = async (req, res, next) => {
+    const addedProduct = ProductModel.findOne({_id: req.body.productId}).exec();
+    console.log(`This id ${req.body.productId}`);
+    try {
+        //return req.user.addToCart(addedProduct);
+    } catch (err) {
+        res.status(404).json({
+            message: "Error"
+        })
+    }
 }
 
-module.exports.reverseSorted = function(req, res){
-
-}
-
-module.exports.forWoman = function(req, res){
-
-}
-
-module.exports.forMan = function(req, res){
-
-}

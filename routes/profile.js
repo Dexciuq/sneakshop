@@ -1,17 +1,12 @@
 const express = require("express");
-const controller = require("../controllers/profileController");
-const passport = require("passport");
+const profileController = require("../controllers/profileController");
+const {requireAuth} = require('../middleware/authMiddleware');
 const router = express.Router();
 
-router.get('/', controller.profile);
-
-router.get('/orders', controller.getOrders);
-
-router.get('/edit', controller.editProfile);
-
-// router.get('/', passport.authenticate('jwt', {session: false}), controller.profile);
-// router.get('/orders', passport.authenticate('jwt', {session: false}), controller.getOrders);
-// router.patch('/edit', passport.authenticate('jwt', {session: false}), controller.editProfile);
-// router.delete('/delete', passport.authenticate('jwt', {session: false}), controller.deleteProfile);
+router.get('/', requireAuth, profileController.profile);
+router.get('/orders', requireAuth, profileController.getOrders);
+router.get('/edit',requireAuth, profileController.getEditProfile);
+router.patch('/edit', requireAuth, profileController.patchEditProfile);
+router.delete('/edit', requireAuth, profileController.deleteEditProfile);
 
 module.exports = router;

@@ -9,11 +9,12 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/products.css" />
+    <link rel="stylesheet" href="css/layout.css" />
     <title>SNEAKSHOP</title>
 </head>
 <body>
 
-<%- include("partials/header.ejs") %>
+<%- include("includes/navbar.ejs") %>
 
 <section class="shop-section">
 <!--    <h2>Products</h2>-->
@@ -35,26 +36,29 @@
     <div class="shop-products-container">
         <label for="data" class="form-label"></label>
         <div class="row">
-        <% if(Array.isArray(mydata)){%>
-            <%for(let a = 0; a < mydata.length; a++){%>
+        <% if(Array.isArray(product)){%>
+            <%for(let i = 0; i < product.length; i++){%>
                 <div class="col-sm-4">
-                    <div class="filter <%=mydata[a].gender%>">
+                    <div class="filter <%=product[i].gender%>">
                         <div class="thumb-wrapper">
                             <div class="img-box">
-                                <img src="<%=mydata[a].productImg%>" class="img-responsive" alt="" />
+                                <img src="<%=product[i].productImg%>" class="img-responsive" alt="" />
                             </div>
                             <div class="thumb-content">
-                                <h4><%=mydata[a].name%></h4>
-                                <p><%=mydata[a].description%></p>
-                                <p class="item-price"><strike><%=mydata[a].price * 1.8%>$</strike> <b><%=mydata[a].price%>$</b></p>
-                                <a href="#"><button class="button">Add to Cart</button></a>
+                                <h4><%=product[i].name%></h4>
+                                <p><%=product[i].description%></p>
+                                <p class="item-price"><strike><%=product[i].price * 1.8%>$</strike> <b><%=product[i].price%>$</b></p>
+                                <form action="/cart" method="post">
+                                    <input type="hidden" name="productId" value="<%=product[i]._id%>">
+                                    <button class="button" type="submit">Add to Cart</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             <%}%>
         <%}else{%>
-        <label for="data" class="form-label"> <%=mydata%></label>
+        <label for="data" class="form-label"> <%=product%></label>
         <%}%>
         </div>
     </div>
@@ -62,7 +66,7 @@
 
 <script src="js/index.js"></script>
 
-<%- include("partials/footer.ejs") %>
+<%- include("includes/footer.ejs") %>
 
 </body>
 </html>

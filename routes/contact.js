@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
 
-router
-    .route("/")
-    .get((req, res) => res.render('contact.ejs'));
+router.route("/").get((req, res) => res.render('contact'));
+
 module.exports = router;

@@ -1,14 +1,32 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
-
-const WishlistSchema = new Schema({
-    list: [
-        {
-            name: String,
-            quantity: Number,
-            cost: Number
-        }
-    ]
+const cartSchema = new mongoose.Schema({
+    owner : {
+        type: ObjectID,
+        required: true,
+        ref: 'User'
+    },
+    products: [{
+        productId: {
+            type: ObjectID,
+            ref: 'Product',
+            required: true
+        },
+        name: String,
+        quantity: {
+            type: Number,
+            required: true,
+            min: 1,
+            default: 1},
+        price: Number
+    }],
+    bill: {
+        type: Number,
+        required: true,
+        default: 0
+    }
+}, {
+    timestamps: true
 });
 
-module.exports =  mongoose.model("Сart", WishlistSchema)
+const Cart = mongoose.model('Cart', cartSchema)
+module.exports = Cart
+

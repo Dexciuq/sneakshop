@@ -1,8 +1,8 @@
 const express = require("express");
-const controller = require("../controllers/productController");
 const router = express.Router();
-router
-    .route("/")
-    .get((req, res) => res.render("cart.ejs"))
-    .post((req, res) => res.send("POST CART"));
+const productController = require('../controllers/productController');
+
+router.get('/', (req, res) => res.render('cart.ejs'));
+router.post('/', productController.addToCart);
+
 module.exports = router;
