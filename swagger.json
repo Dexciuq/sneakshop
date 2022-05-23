@@ -44,7 +44,7 @@
         }
       }
     },
-    "/products/{id}": {
+    "/products/{productId}": {
       "get": {
         "tags": ["Product"],
         "summary": "Get all product in system",
