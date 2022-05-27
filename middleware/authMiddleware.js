@@ -10,6 +10,7 @@ const requireAuth = (req, res, next) => {
                 console.log(err);
                 next();
             } else {
+                console.log(decodedToken);
                 req.user = await UserModel.findOne({email: decodedToken.email}).exec();
                 next();
             }

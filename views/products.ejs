@@ -17,18 +17,17 @@
 <%- include("includes/navbar.ejs") %>
 
 <section class="shop-section">
-<!--    <h2>Products</h2>-->
-<!--    <p>So you are looking for Nike Air Max 1, Nike Air Force 1, Nike Air Max 79, New Balance 247, <br> Adidas Ultra BOOST, Adidas I-5923, New Balance 997,Adidas NMD or an ASICS SportStyle Sneaker<br> like ASICS SportStyle Gel Lyte III...? Here, our partners, we hope you will find the sneaker you want.-->
-<!--    </p>-->
-    <h2>Filter list</h2>
+    <h2>Products</h2>
+    <p>So you are looking for Nike Air Max 1, Nike Air Force 1, Nike Air Max 79, New Balance 247, <br> Adidas Ultra BOOST, Adidas I-5923, New Balance 997,Adidas NMD or an ASICS SportStyle Sneaker<br> like ASICS SportStyle Gel Lyte III...? Here, our partners, we hope you will find the sneaker you want.
+    </p>
+    <br>
+<!--    <h2>Filter list</h2>-->
 
     <div id="myBtnContainer">
         <button class="button active" onclick="filterSelection('all')"> Show all</button>
         <button class="button" onclick="filterSelection('man')"> Men</button>
         <button class="button" onclick="filterSelection('women')"> Women</button>
         <button class="button" onclick="filterSelection('unisex')"> Unisex</button>
-<!--        <button class="button" onclick="sort()"> Sort by high to low</button>-->
-<!--        <button class="button" onclick="sortReverse()"> Sort by low to high</button>-->
     </div>
 
 
@@ -47,6 +46,7 @@
                             <div class="thumb-content">
                                 <h4><%=product[i].name%></h4>
                                 <p><%=product[i].description%></p>
+                                <a href="/products/<%=product[i]._id%>">More detail...</a>
                                 <p class="item-price"><strike><%=product[i].price * 1.8%>$</strike> <b><%=product[i].price%>$</b></p>
                                 <form action="/cart" method="post">
                                     <input type="hidden" name="productId" value="<%=product[i]._id%>">

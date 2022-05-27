@@ -26,9 +26,9 @@
                 </li>
             </ul>
 
-            <div class="d-flex nav-icons">
-                <a href="/cart" class="nav-link">My Cart <i class="fas fa-shopping-cart"></i></a>
-            </div>
+<!--            <div class="d-flex nav-icons">-->
+<!--                <a href="/cart" class="nav-link">My Cart <i class="fas fa-shopping-cart"></i></a>-->
+<!--            </div>-->
 
             <% if (!isAuthenticated) { %>
                 <div class="d-flex nav-icons">
@@ -37,6 +37,7 @@
                 </div>
             <% } else { %>
                 <div class="d-flex nav-icons">
+                    <a href="/cart" class="nav-link">My Cart <i class="fas fa-shopping-cart"></i></a>
                     <a href="/profile" class="nav-link-profile">Profile | </a>
                     <form action="/auth/logout" method="post">
                         <button type="submit" class="logout">Logout <i class="fas fa-user"></i></button>

@@ -27,7 +27,7 @@ module.exports.postLoginJwt = async function(req, res, next){
                 userId: candidate._id
             }, process.env.SECRET, {expiresIn: maxAge * 1000});
             res.cookie('jwt', token, {httpOnly: true});
-            res.setHeader('Authorization', 'Bearer '+ token);
+            res.header('Authorization', 'Bearer '+ token);
             req.session.isLoggedIn = true;
             res.redirect('/');
         }

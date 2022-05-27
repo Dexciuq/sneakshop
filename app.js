@@ -43,7 +43,7 @@ const keys = require("./config/keys");
 mongoose.Promise = global.Promise;
 mongoose.connect(keys.mongoURI)
     .then(() => console.log("MongoDB connected successfully"))
-    .catch((err) => console.log("err"));
+    .catch((err) => console.log(err));
 
 
 app.use("/", require("./routes/root"));
@@ -51,6 +51,7 @@ app.use("/about", require("./routes/about"));
 app.use("/products", require("./routes/products"));
 app.use("/cart", require("./routes/cart"));
 app.use("/contact", require("./routes/contact"));
+app.use("/users", require("./routes/users"));
 app.use("/profile", require("./routes/profile"));
 app.use("/auth", require("./routes/auth"));
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
