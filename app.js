@@ -13,8 +13,8 @@ const swaggerDocument = require('./swagger.json');
 
 const app = express();
 
-app.use(cors());
-app.use(require('morgan')('dev'));
+// app.use(cors());
+// app.use(require('morgan')('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));

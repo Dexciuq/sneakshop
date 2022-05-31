@@ -86,19 +86,6 @@ module.exports.deleteProduct = async function (req, res) {
     });
 }
 
-module.exports.addToCart = async (req, res, next) => {
-    const addedProduct = ProductModel.findOne({_id: req.body.productId}).exec();
-    console.log(`This id ${req.body.productId}`);
-    try {
-        //return req.user.addToCart(addedProduct);
-    } catch (err) {
-        res.status(404).json({
-            message: "Error"
-        })
-    }
-}
-
-
 module.exports.getAllProductsForGender = async function (req, res) {
     try {
         const products = await ProductModel.find({gender: req.params.gender});

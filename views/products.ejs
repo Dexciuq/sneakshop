@@ -10,7 +10,7 @@
           integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="css/products.css" />
     <link rel="stylesheet" href="css/layout.css" />
-    <title>SNEAKSHOP</title>
+    <title>Products</title>
 </head>
 <body>
 
@@ -50,6 +50,10 @@
                                 <p class="item-price"><strike><%=product[i].price * 1.8%>$</strike> <b><%=product[i].price%>$</b></p>
                                 <form action="/cart" method="post">
                                     <input type="hidden" name="productId" value="<%=product[i]._id%>">
+                                    <input type="hidden" name="name" value="<%=product[i].name%>">
+                                    <input type="hidden" name="gender" value="<%=product[i].gender%>">
+                                    <input type="hidden" name="price" value="<%=product[i].price%>">
+                                    <input type="hidden" name="productImg" value="<%=product[i].productImg%>">
                                     <button class="button" type="submit">Add to Cart</button>
                                 </form>
                             </div>

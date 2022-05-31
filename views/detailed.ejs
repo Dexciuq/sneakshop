@@ -33,6 +33,10 @@
                         <p class="item-price"><strike><%=product.price * 1.8%>$</strike> <b><%=product.price%>$</b></p>
                         <form action="/cart" method="post">
                             <input type="hidden" name="productId" value="<%=product._id%>">
+                            <input type="hidden" name="name" value="<%=product.name%>">
+                            <input type="hidden" name="gender" value="<%=product.gender%>">
+                            <input type="hidden" name="price" value="<%=product.price%>">
+                            <input type="hidden" name="productImg" value="<%=product.productImg%>">
                             <button class="button" type="submit">Add to Cart</button>
                         </form>
                     </div>
